@@ -1,0 +1,52 @@
+// DC모터 구동
+// DC모터 in1 -> 4, in2 -> 5 에 연결
+
+
+int DCmotorPin1 = 4;
+int DCmotorPin2 = 5;
+
+void frontCar(int time) {
+  digitalWrite(4, LOW);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, LOW);
+  digitalWrite(7, HIGH);
+
+  delay(time);
+}
+
+void backCar(int time) {
+  digitalWrite(4, HIGH);
+  digitalWrite(5, LOW);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, LOW);
+
+  delay(time);
+
+}
+
+void stopCar(int time) {
+  digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
+
+  delay(time);
+}
+
+void setup() {
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+
+}
+
+void loop() {
+
+
+  frontCar(1000);
+  backCar(1000);
+  stopCar(1000);
+
+
+}
