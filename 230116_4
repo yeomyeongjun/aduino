@@ -1,0 +1,16 @@
+// led가 깜빡이도록 구현
+
+void setup() {
+
+  pinMode(8, OUTPUT);
+}
+
+void loop() {
+  
+  digitalWrite(8, HIGH);
+  delay(7);
+
+  digitalWrite(8, LOW);
+  delay(1);
+  
+}
