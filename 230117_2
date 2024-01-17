@@ -1,0 +1,48 @@
+// 사용자로부터 명령을 입력받아 동작 수행
+
+int A_1A = 4;
+int A_1B = 5;
+
+int B_1A = 6;
+int B_1B = 7;
+
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    char ch = Serial.read();
+    Serial.println(ch);
+    Serial.print(ch);
+
+    if (ch == 'f') { // front를 의미, 차가 앞으로 가게하는 명령
+      digitalWrite(A_1A, HIGH);
+      digitalWrite(A_1B, 0);
+      digitalWrite(B_1A, HIGH);
+      digitalWrite(B_1B, 0);
+    }
+
+
+    if (ch == 'b') { // back을 의미, 차가 뒤로 가게하는 명령
+      digitalWrite(A_1A, 0);
+      digitalWrite(A_1B, HIGH);
+      digitalWrite(B_1A, 0);
+      digitalWrite(B_1B, HIGH);
+    }
+
+    if (ch == 's') { // stop을 의미,차가 멈추게 하는 명령
+      digitalWrite(A_1A, 0);
+      digitalWrite(A_1B, 0);
+      digitalWrite(B_1A, 0);
+      digitalWrite(B_1B, 0);
+    }
+
+  }
+}
