@@ -1,0 +1,14 @@
+// 검정색이면 1, 흰색이면 0 출력
+
+int sensor = 8;
+int val = 0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(sensor, INPUT);
+}
+
+void loop() {
+  val = digitalRead(sensor);
+  Serial.println(val); // 시리얼 통신 화면에 출력
+}
