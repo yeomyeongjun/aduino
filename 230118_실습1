@@ -1,0 +1,53 @@
+// 적외선센서
+
+int sensor_1 = 9;
+int sensor_2 = 8;
+int val_1 = 0;
+int val_2 = 0;
+
+int A_1A = 4;
+int A_1B = 5;
+
+int B_1A = 6;
+int B_1B = 7;
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(sensor_1, INPUT);
+  pinMode(sensor_2, INPUT);
+}
+
+void loop() {
+
+  val_1 = digitalRead(sensor_1);
+  val_2 = digitalRead(sensor_2);
+
+  if(val_1 == LOW && val_2 == LOW) {
+    Serial.println("직진");
+    digitalWrite(A_1A, HIGH);
+    digitalWrite(A_1B, 0);
+    digitalWrite(B_1A, HIGH);
+    digitalWrite(B_1B, 0);
+  }
+
+  if(val_1 == HIGH && val_2 == LOW) {
+    Serial.println("좌회전");
+  }
+
+  if(val_1 == LOW && val_2 == HIGH) {
+    Serial.println("좌회전");
+  } 
+
+  delay(1000);
+
+
+/*
+  else {
+    Serial.println("감지 안됨");
+    delay(500);
+  }
+
+*/
+
+}
