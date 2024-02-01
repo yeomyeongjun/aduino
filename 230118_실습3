@@ -1,0 +1,57 @@
+#define LmotorCW 5
+#define LmotorCCW 6
+
+#define RmotorCW 9
+#define RmotorCCW 10
+
+#define IRL 7
+#define IRR 8
+
+int speed = 50;
+
+void setup() {
+  pinMode(LmotorCW, OUTPUT);
+  pinMode(LmotorCCW, OUTPUT);
+  pinMode(RmotorCW, OUTPUT);
+  pinMode(RmotorCCW, OUTPUT);
+  pinMode(IRL, INPUT);
+  pinMode(IRR, INPUT);
+}
+
+void loop() {
+
+  if ((digitalRead(IRL) == 1) && (digitalRead(IRR) == 1)) {
+    analogWrite(LmotorCW, 0);
+    analogWrite(LmotorCCW, speed);
+
+    analogWrite(RmotorCW, speed);
+    analogWrite(RmotorCCW, 0);
+  }  
+
+/*
+  else if (digitalRead(IRL) == LOW && digitalRead(IRR) == HIGH) {
+    analogWrite(LmotorCW, 0);
+    analogWrite(LmotorCCW, speed);
+
+    analogWrite(RmotorCW, 0);
+    analogWrite(RmotorCCW, speed);
+
+  }
+
+  else if (digitalRead(IRL) == HIGH && digitalRead(IRR) == LOW) {
+    analogWrite(LmotorCW, speed);
+    analogWrite(RmotorCCW, 0);
+
+    analogWrite(RmotorCW, speed);
+    analogWrite(RmotorCCW, 0);    
+  }
+
+  else if (digitalRead(IRL) == LOW && digitalRead(IRR) == LOW) {
+    analogWrite(LmotorCW, 0);
+    analogWrite(RmotorCCW, 0);
+
+    analogWrite(RmotorCW, 0);
+    analogWrite(RmotorCCW, 0);    
+  }
+*/
+}
